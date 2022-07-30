@@ -10,19 +10,19 @@ import { getPokemonsWithDetails, setLoading } from "./redux/actions";
 import "./App.css";
 
 function App() {
-  const pokemons = useSelector((state) => state.pokemons);
-  const loading = useSelector((state) => state.loading);
+  const pokemons = useSelector((state) => state.get("pokemons")).toJS();
+  const loading = useSelector((state) => state.get("loading"));
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchPokemons = async () => {
-      dispatch(setLoading(true))
+      dispatch(setLoading(true));
       const pokemonsRes = await getPokemon();
       dispatch(getPokemonsWithDetails(pokemonsRes));
-      dispatch(setLoading(false)) 
+      dispatch(setLoading(false));
     };
     fetchPokemons();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
