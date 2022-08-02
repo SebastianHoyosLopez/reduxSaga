@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { pokemonsReducer } from "./redux/reducers/pokemons";
+// import { store, sagaMiddleware } from "./redux/store";
+import { pokemonsReducer } from "./redux/modules/pokemons/reducer";
 import { Provider } from "react-redux";
 import {
   applyMiddleware,
@@ -19,6 +20,8 @@ const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const composedEnhancers = composeAlt(applyMiddleware(thunk, logger));
 
 const store = createStore(pokemonsReducer, composedEnhancers);
+
+
 
 root.render(
   <React.StrictMode>

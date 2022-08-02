@@ -16,6 +16,7 @@ const PokemonList = ({ pokemons }) => {
               types={pokemon.types}
               id={pokemon.id}
               favorite={pokemon.favorite}
+              pokemon={pokemon}
             />
           </div>
         );

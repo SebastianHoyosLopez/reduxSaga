@@ -6,7 +6,7 @@ import Searcher from "./components/Searcher";
 import PokemonList from "./components/PokemonList";
 import logo from "./statics/logo.svg";
 import { getPokemon } from "./api";
-import { getPokemonsWithDetails, setLoading } from "./redux/actions";
+import { getPokemonsWithDetails, setLoading } from "./redux/modules/pokemons/actions";
 import "./App.css";
 
 function App() {
