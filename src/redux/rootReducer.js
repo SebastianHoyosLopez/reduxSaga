@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { pokemonsReducer } from "./modules/pokemons/reducer";
 
 const rootReducer = combineReducers({
-    pokemons: pokemonsReducer
+    pokemonsReducer,
 })
 
 export default rootReducer;

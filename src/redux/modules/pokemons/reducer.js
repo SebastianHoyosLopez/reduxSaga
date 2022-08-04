@@ -1,10 +1,5 @@
+import { initialState } from "./states";
 import { SET_FAVORITE, SET_LOADING, SET_POKEMONS, SET_POKEBOLA } from "./types";
-
-const initialState = {
-  pokemons: [],
-  loading: false,
-  pokebola: [],
-};
 
 export const pokemonsReducer = (state = initialState, action) => {
   switch (action.type) {
