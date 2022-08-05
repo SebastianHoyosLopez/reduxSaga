@@ -2,8 +2,6 @@ import React from "react";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = ({ pokemons }) => {
-  //   const pokemon = Array(10).fill("");
-    console.log(pokemons)
 
   return (
     <div className="PokemonList">

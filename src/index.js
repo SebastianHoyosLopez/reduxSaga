@@ -8,7 +8,8 @@ import { applyMiddleware, compose, legacy_createStore as createStore, } from "re
 import { pokemonsReducer } from "./redux/modules/pokemons/reducer";
 import thunk from "redux-thunk";
 import createSagaMiddleware from "@redux-saga/core";
-import rootSaga from './redux/rootSaga'
+import rootSaga from './redux/rootSaga';
+// import rootReducer from './redux/rootReducer'
 
 const sagaMiddleware = createSagaMiddleware()
 

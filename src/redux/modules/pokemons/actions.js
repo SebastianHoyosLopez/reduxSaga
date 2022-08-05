@@ -1,5 +1,5 @@
 import { getPokemonDetails } from "../../../api";
-import { SET_FAVORITE, SET_LOADING, SET_POKEMONS, SET_POKEBOLA } from "./types";
+import { SET_FAVORITE, SET_LOADING, SET_POKEMONS, SET_POKEBOLA, SET_POKEBOLA_DELETE } from "./types";
 
 export const setPokemons = (payload) => ({
   type: SET_POKEMONS,
@@ -8,6 +8,11 @@ export const setPokemons = (payload) => ({
 
 export const setPokebola = (payload) => ({
   type: SET_POKEBOLA,
+  payload,
+})
+
+export const setPokebolaDelete = (payload) => ({
+  type: SET_POKEBOLA_DELETE,
   payload,
 })
 
@@ -27,3 +32,22 @@ export const getPokemonsWithDetails = (pokemons = []) => async (dispatch) => {
   );
   dispatch(setPokemons(pokemonsDetailed));
 };
+
+
+// export const setPokemonsRequest = () => ({
+//   type: SET_POKEMONS_REQUEST,
+// })
+
+// export const setPokemonsSuccess = (payload) => ({
+//   type: SET_POKEMONS_SUCCESS,
+//   payload
+// })
+
+// export const setPokemonsFailure = (payload) => ({
+//   type: SET_POKEMONS_FAILURE,
+//   payload
+// })
+
+// export const setPokemonsFulfill = () => ({
+//   type: SET_POKEMONS_FULFILL,
+// })
