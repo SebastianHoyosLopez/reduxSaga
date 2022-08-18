@@ -1,18 +1,19 @@
-import { call, put, takeEvery } from "redux-saga/effects"
-import { getPokemon } from "../../../api"
-import { setPokemonsRequest, setPokemonsSuccess } from "./actions"
-import { SET_POKEMONS, SET_POKEMONS_REQUEST, SET_POKEMONS_SUCCESS } from "./types"
+import { call, put, takeEvery } from "redux-saga/effects";
+import { getPokemon } from "../../../api";
+import { getPokemons } from "./actions";
 
 function* getPokemonsSaga() {
-    try {
-        const response = yield call(getPokemon())
-        yield put({type: SET_POKEMONS_SUCCESS, payload: response})
-
-    } catch (error) {
-        console.log(error.message)
-    }
+  try {
+    yield put(getPokemons.request());
+    const response = yield call(getPokemon());
+    yield put(getPokemons.success(response));
+  } catch (error) {
+    yield put(getPokemons.failure());
+  } finally {
+    yield put(getPokemons.fulfill());
+  }
 }
 
 export default function* pokemonsSaga() {
-    yield takeEvery(SET_POKEMONS_REQUEST, getPokemonsSaga)
+  yield takeEvery(getPokemons.TRIGGER, getPokemonsSaga);
 }

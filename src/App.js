@@ -11,23 +11,29 @@ import {
   Route,
 } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getPokemonsWithDetails, setLoading } from "./redux/modules/pokemons/actions";
-import { getPokemon } from "./api";
+import { getPokemons, getPokemonsWithDetails, setLoading } from "./redux/modules/pokemons/actions";
+import { getDatosCrossRef, getPokemon } from "./api";
 
 function App() {
   const dispatch = useDispatch();
 
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-        dispatch(setLoading(true))
-        const pokemonsRes = await getPokemon();
-        dispatch(getPokemonsWithDetails(pokemonsRes));
-        dispatch(setLoading(false))
-    };
-    fetchPokemons();
-}, [dispatch]);
+//   useEffect(() => {
+//     const fetchPokemons = async () => {
+//         dispatch(setLoading(true))
+//         const pokemonsRes = await getPokemon();
+//         const datosCrossRef = await getDatosCrossRef();
+//         console.log(datosCrossRef)
+//         dispatch(getPokemonsWithDetails(pokemonsRes));
+//         dispatch(setLoading(false))
+//     };
+//     fetchPokemons();
+// }, [dispatch]);
 
+
+useEffect(() => {
+  dispatch(getPokemons.trigger())
+}, []);
 
   return (
     <BrowserRouter>

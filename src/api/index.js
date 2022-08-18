@@ -13,3 +13,11 @@ export const getPokemonDetails = (pokemon) => {
     .then((res) => res.data)
     .catch((err) => console.log(err));
 };
+
+
+export const getDatosCrossRef = () => {
+  return axios
+    .get("https://rickandmortyapi.com/api/character")
+    .then((res) => res.data.results)
+    .catch((err) => console.log(err));
+};
