@@ -1,26 +1,17 @@
+import { createAction } from "redux-actions";
 import { createRoutine } from "redux-saga-routines";
-import { getPokemonDetails } from "../../../api";
-import { SET_FAVORITE, SET_LOADING, SET_POKEMONS, SET_POKEBOLA, SET_POKEBOLA_DELETE, GET_POKEMONS } from "./types";
+import { SET_FAVORITE, SET_LOADING, SET_POKEMONS, SET_POKEBOLA, SET_POKEBOLA_DELETE, GET_POKEMONS, GET_POKEMON_DETAIL } from "./types";
 
 export const getPokemons = createRoutine(GET_POKEMONS);
-
+export const getPokemonDetail = createRoutine(GET_POKEMON_DETAIL);
 
 export const setPokemons = (payload) => ({
   type: SET_POKEMONS,
   payload,
 });
 
-export const getPokemonsWithDetails = (pokemons = []) => async (dispatch) => {
-  const pokemonsDetailed = await Promise.all(
-    pokemons.map((pokemon) => getPokemonDetails(pokemon))
-  );
-  dispatch(setPokemons(pokemonsDetailed));
-};
+export const setPokebola = createAction(SET_POKEBOLA);
 
-export const setPokebola = (payload) => ({
-  type: SET_POKEBOLA,
-  payload,
-})
 
 export const setPokebolaDelete = (payload) => ({
   type: SET_POKEBOLA_DELETE,

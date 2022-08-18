@@ -25,11 +25,7 @@ const PokemonCard = ({ name, image, types, id, favorite, pokemon }) => {
     dispatch(setPokebolaDelete(pokemon));
   };
 
-  const pokebolaPoke = useSelector((state) => state.pokebola);
-
-  const pokemonOnPokebola = pokebolaPoke.find(
-    (itemPokemon) => itemPokemon.name === name
-  );
+  const pokemonOnPokebola = null;
 
   return (
     <Card

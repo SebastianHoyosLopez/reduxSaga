@@ -1,4 +1,4 @@
-import { getPokemons } from "./actions";
+import { getPokemons, getPokemonDetail } from "./actions";
 import { initialState } from "./states";
 import {
   SET_FAVORITE,
@@ -21,6 +21,16 @@ export const pokemonsReducer = (state = initialState, action) => {
     case getPokemons.FULFILL: 
       return { ...state, loading: false };
     
+      case getPokemonDetail.TRIGGER: 
+      return {...state, loading: true }
+    case getPokemonDetail.REQUEST: 
+      return {...state }
+    case getPokemonDetail.SUCCESS: 
+      return { ...state, pokemon: action.payload };
+    case getPokemonDetail.FAILURE: 
+      return { ...state, pokemon: null };
+    case getPokemonDetail.FULFILL: 
+      return { ...state, loading: false };
 
     case SET_POKEMONS:
       return { ...state, pokemons: action.payload };

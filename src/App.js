@@ -11,8 +11,8 @@ import {
   Route,
 } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getPokemons, getPokemonsWithDetails, setLoading } from "./redux/modules/pokemons/actions";
-import { getDatosCrossRef, getPokemon } from "./api";
+import { getPokemons } from "./redux/modules/pokemons/actions";
+
 
 function App() {
   const dispatch = useDispatch();
